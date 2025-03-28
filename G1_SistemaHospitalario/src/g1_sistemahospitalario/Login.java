@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame {
         btnCrear = new javax.swing.JToggleButton();
         background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

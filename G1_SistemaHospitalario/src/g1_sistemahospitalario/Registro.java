@@ -11,12 +11,21 @@ import javax.swing.*;
  * @author fernandafajardo
  */
 public class Registro extends javax.swing.JFrame {
+    
+    Consultas consultas = new Consultas();
 
     /**
      * Creates new form Login
      */
     public Registro() {
         initComponents();
+    }
+    
+    public void limpiar(){
+        txtUsuario.setText("");
+        txtTelefono.setText("");
+        txtEmail.setText("");
+        txtPW.setText("");
     }
 
     /**
@@ -31,17 +40,21 @@ public class Registro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtNCompleto = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPW = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         btnCrearC = new javax.swing.JToggleButton();
         cmbMP = new javax.swing.JComboBox<>();
         background = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtEmail1 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,37 +71,45 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Kodchasan", 1, 16)); // NOI18N
         jLabel6.setText("Registro");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
-        jLabel1.setText("Nombre Completo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+        jLabel1.setText("Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
-        txtNCompleto.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        txtNCompleto.setBorder(null);
-        jPanel1.add(txtNCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 240, 30));
+        txtUsuario.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtUsuario.setBorder(null);
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 240, 20));
 
         jLabel2.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
         jLabel2.setText("Correo Electrónico");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         txtEmail.setBorder(null);
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 240, 30));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 240, 20));
+
+        jLabel9.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
+        jLabel9.setText("Teléfono");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+
+        txtTelefono.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtTelefono.setBorder(null);
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 240, 20));
 
         jLabel3.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
         jLabel3.setText("Contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
         txtPW.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         txtPW.setBorder(null);
-        jPanel1.add(txtPW, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 240, 30));
+        jPanel1.add(txtPW, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 240, 20));
 
         jLabel7.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
         jLabel7.setText("Seleccione Médico o Paciente");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
-        btnCrearC.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
+        btnCrearC.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         btnCrearC.setForeground(new java.awt.Color(0, 204, 204));
         btnCrearC.setText("Crear cuenta");
         btnCrearC.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +127,14 @@ public class Registro extends javax.swing.JFrame {
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg-image.jpg"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -3, 370, 530));
 
+        jLabel8.setFont(new java.awt.Font("Kodchasan", 0, 16)); // NOI18N
+        jLabel8.setText("Correo Electrónico");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+
+        txtEmail1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtEmail1.setBorder(null);
+        jPanel1.add(txtEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 240, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,7 +151,52 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnCrearCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCActionPerformed
         // TODO add your handling code here:
+        char[] passwordArray = txtPW.getPassword();
+  
+        String usuario = txtUsuario.getText();
+        String tel = txtTelefono.getText();
+        String email = txtEmail.getText();
+        String pw = new String(passwordArray);
+        String rol = cmbMP.getSelectedItem().toString();
         
+        // Acumular los errores
+        StringBuilder errores = new StringBuilder();
+
+        // Validar los datos
+        if (usuario.isEmpty()) {
+            errores.append("El campo de usuario no puede estar vacío.\n");
+            txtUsuario.setText("");
+        }
+        if (tel.isEmpty() || !tel.matches("\\d{8}")) { //teléfono de 8 dígitos
+            errores.append("El teléfono debe ser un número de 8 dígitos.\n");
+            txtTelefono.setText("");
+        }
+        if (email.isEmpty() || !email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) { // Validación básica de correo
+            errores.append("El correo electrónico no es válido.\n");
+            txtEmail.setText("");
+        }
+        if (pw.isEmpty() || pw.length() < 6) { // Validar contraseña con longitud mínima
+            errores.append("La contraseña debe tener al menos 6 caracteres.\n");
+            txtPW.setText("");
+        }
+
+        // Si hubo errores, mostrar los mensajes acumulados
+        if (errores.length() > 0) {
+            MensajeDialogo.mostrarMensaje(errores.toString(), "Errores de Validación", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+
+            return;
+        }
+        
+        RegistroU registro = new RegistroU(usuario, tel,email, pw,rol);
+        boolean exito = consultas.registro(registro);
+        
+        if (exito) {
+            limpiar();
+            this.dispose();
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+        }
     }//GEN-LAST:event_btnCrearCActionPerformed
 
     /**
@@ -171,10 +245,14 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNCompleto;
+    private javax.swing.JTextField txtEmail1;
     private javax.swing.JPasswordField txtPW;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
 }
