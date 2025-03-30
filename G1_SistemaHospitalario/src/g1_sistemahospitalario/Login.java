@@ -11,12 +11,18 @@ import javax.swing.*;
  * @author fernandafajardo
  */
 public class Login extends javax.swing.JFrame {
-
+    
+    Consultas consultas = new Consultas();
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+    }
+    
+    public void limpiar(){
+        txtUsuario.setText("");
+        txtPW.setText("");
     }
 
     /**
@@ -128,6 +134,38 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        char[] passwordArray = txtPW.getPassword();
+  
+        String usuario = txtUsuario.getText();
+        String pw = new String(passwordArray);
+        
+        StringBuilder errores = new StringBuilder();
+        
+        //Validar campos
+        if(usuario.isEmpty()){
+            errores.append("El campo de usuario no puede estar vacío.\n");
+            txtUsuario.setText("");
+        }
+        if(pw.isEmpty()){
+            errores.append("El campo de contraseña no puede estar vacío.\n");
+            txtPW.setText("");
+        }
+        
+        //Si hubo errores,se mostrará mensaje
+        if(errores.length() > 0){
+            MensajeDialogo.mostrarMensaje(errores.toString(), "Errores de Validación", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        RegistroU usuarioLogin = new RegistroU();
+        usuarioLogin.setUsuario(usuario);
+        usuarioLogin.setContrasena(pw);
+        
+        boolean exito = consultas.login(usuarioLogin);
+        if (exito) {
+            limpiar();
+            this.dispose();
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
