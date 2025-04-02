@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package g1_sistemahospitalario;
+package Vista;
+
+import g1_sistemahospitalario.*;
 
 /**
  *
@@ -40,7 +42,6 @@ public class PantallaMedico extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNombreM.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        txtNombreM.setText("jLabel2");
         jPanel1.add(txtNombreM, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 250, -1));
 
         bgM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg2.jpg"))); // NOI18N
@@ -86,6 +87,7 @@ public class PantallaMedico extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PantallaMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -98,6 +100,6 @@ public class PantallaMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgM;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel txtNombreM;
+    public javax.swing.JLabel txtNombreM;
     // End of variables declaration//GEN-END:variables
 }
