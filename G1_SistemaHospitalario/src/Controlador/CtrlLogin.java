@@ -18,6 +18,7 @@ public class CtrlLogin implements ActionListener {
     private final Consultas consulta;
     private final Login vista;
     private CtrlRegistro ctrlRegistro;
+    private CtrlPP ctrlPaciente;
 
     public CtrlLogin(RegistroU modelo, Consultas consulta, Login vista) {
         this.modelo = modelo;
@@ -29,6 +30,10 @@ public class CtrlLogin implements ActionListener {
     
     public void setCtrlRegistro(CtrlRegistro ctrlRegistro) {
         this.ctrlRegistro = ctrlRegistro;
+    }
+    
+    public void setCtrlPaciente(CtrlPP ctrlPaciente){
+        this.ctrlPaciente = ctrlPaciente;
     }
     
     public void iniciar(){
@@ -82,6 +87,7 @@ public class CtrlLogin implements ActionListener {
             if(consulta.login(modelo)){
                 limpiar();
                 vista.dispose();
+                ctrlPaciente.iniciar();
             }
         }
         

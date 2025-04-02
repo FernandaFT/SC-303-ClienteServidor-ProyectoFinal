@@ -54,6 +54,10 @@ public class CtrlPP implements ActionListener {
             System.out.println("Buscando usuario: " + modelo.getUsuario());
 
             if(consulta.buscar(modelo)){
+                System.out.println("Usuario encontrado. Datos cargados:");
+                System.out.println("Teléfono: " + modelo.getTelefono());
+                System.out.println("Correo: " + modelo.getCorreo());
+                System.out.println("Contraseña: " + modelo.getContrasena());
                 vistaPP.txtTel.setText(modelo.getTelefono());
                 vistaPP.txtCorreo.setText(modelo.getCorreo());
                 vistaPP.txtContr.setText(modelo.getContrasena());
@@ -65,17 +69,16 @@ public class CtrlPP implements ActionListener {
         
         //botón modificar
         if(e.getSource() == vistaPP.btnModificarD){
-            String usuario = vistaPP.txtNom.getText();
-            String tel = vistaPP.txtTel.getText();
-            String email = vistaPP.txtCorreo.getText();
-            String pw = vistaPP.txtContr.getText();
-            
+            modelo.setUsuario(vistaPP.txtNom.getText().trim());
+            modelo.setTelefono(vistaPP.txtTel.getText().trim());
+            modelo.setCorreo(vistaPP.txtCorreo.getText().trim());
+            modelo.setContrasena(vistaPP.txtContr.getText().trim());
+
             if(consulta.modificar(modelo)){
                 MensajeDialogo.mostrarMensaje("Registro modificado", "Confirmación", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
-            }else{
+            } else {
                 MensajeDialogo.mostrarMensaje("Error al modificar", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
-                limpiar();
             }
         }
         //botón salir
