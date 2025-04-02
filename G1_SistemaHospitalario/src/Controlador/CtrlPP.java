@@ -51,13 +51,8 @@ public class CtrlPP implements ActionListener {
         //botón buscar
         if(e.getSource() == vistaPP.btnBuscar){
             modelo.setUsuario(vistaPP.txtNom.getText().trim());
-            System.out.println("Buscando usuario: " + modelo.getUsuario());
 
             if(consulta.buscar(modelo)){
-                System.out.println("Usuario encontrado. Datos cargados:");
-                System.out.println("Teléfono: " + modelo.getTelefono());
-                System.out.println("Correo: " + modelo.getCorreo());
-                System.out.println("Contraseña: " + modelo.getContrasena());
                 vistaPP.txtTel.setText(modelo.getTelefono());
                 vistaPP.txtCorreo.setText(modelo.getCorreo());
                 vistaPP.txtContr.setText(modelo.getContrasena());
