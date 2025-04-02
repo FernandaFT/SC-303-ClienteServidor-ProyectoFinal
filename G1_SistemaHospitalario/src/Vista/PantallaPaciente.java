@@ -73,7 +73,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         btnModificarD = new javax.swing.JButton();
         pDP = new javax.swing.JPanel();
-        txtInfoDatos = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtInfoDatosP = new javax.swing.JTextArea();
         panelCitas = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtNomC = new javax.swing.JTextField();
@@ -84,12 +85,15 @@ public class PantallaPaciente extends javax.swing.JFrame {
         btnReservar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         pC = new javax.swing.JPanel();
-        txtInfoDatos2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtInfoDatosC = new javax.swing.JTextArea();
         btnBuscarP = new javax.swing.JButton();
         panelDiagnostico = new javax.swing.JPanel();
-        txtInfoDatos1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtInfoDiagnostico = new javax.swing.JTextArea();
         panelMedicamentos = new javax.swing.JPanel();
-        txtInfoDatos3 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtInfoMedicamentos = new javax.swing.JTextArea();
         bgP = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
@@ -175,8 +179,15 @@ public class PantallaPaciente extends javax.swing.JFrame {
         pDP.setPreferredSize(new java.awt.Dimension(372, 526));
         pDP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtInfoDatos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        pDP.add(txtInfoDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 100));
+        txtInfoDatosP.setEditable(false);
+        txtInfoDatosP.setBackground(new java.awt.Color(255, 255, 255));
+        txtInfoDatosP.setColumns(20);
+        txtInfoDatosP.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtInfoDatosP.setRows(5);
+        txtInfoDatosP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane1.setViewportView(txtInfoDatosP);
+
+        pDP.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 230, 120));
 
         javax.swing.GroupLayout panelDatosPLayout = new javax.swing.GroupLayout(panelDatosP);
         panelDatosP.setLayout(panelDatosPLayout);
@@ -292,8 +303,15 @@ public class PantallaPaciente extends javax.swing.JFrame {
         pC.setPreferredSize(new java.awt.Dimension(372, 526));
         pC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtInfoDatos2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        pC.add(txtInfoDatos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 100));
+        txtInfoDatosC.setEditable(false);
+        txtInfoDatosC.setBackground(new java.awt.Color(255, 255, 255));
+        txtInfoDatosC.setColumns(20);
+        txtInfoDatosC.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtInfoDatosC.setRows(5);
+        txtInfoDatosC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane2.setViewportView(txtInfoDatosC);
+
+        pC.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 230, 120));
 
         btnBuscarP.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         btnBuscarP.setForeground(new java.awt.Color(0, 204, 204));
@@ -370,8 +388,15 @@ public class PantallaPaciente extends javax.swing.JFrame {
         panelDiagnostico.setPreferredSize(new java.awt.Dimension(372, 526));
         panelDiagnostico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtInfoDatos1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        panelDiagnostico.add(txtInfoDatos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 290));
+        txtInfoDiagnostico.setEditable(false);
+        txtInfoDiagnostico.setBackground(new java.awt.Color(255, 255, 255));
+        txtInfoDiagnostico.setColumns(20);
+        txtInfoDiagnostico.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtInfoDiagnostico.setRows(5);
+        txtInfoDiagnostico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane3.setViewportView(txtInfoDiagnostico);
+
+        panelDiagnostico.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, 280));
 
         jPanel1.add(panelDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 250, 340));
 
@@ -381,8 +406,15 @@ public class PantallaPaciente extends javax.swing.JFrame {
         panelMedicamentos.setPreferredSize(new java.awt.Dimension(372, 526));
         panelMedicamentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtInfoDatos3.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        panelMedicamentos.add(txtInfoDatos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 290));
+        txtInfoMedicamentos.setEditable(false);
+        txtInfoMedicamentos.setBackground(new java.awt.Color(255, 255, 255));
+        txtInfoMedicamentos.setColumns(20);
+        txtInfoMedicamentos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtInfoMedicamentos.setRows(5);
+        txtInfoMedicamentos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane4.setViewportView(txtInfoMedicamentos);
+
+        panelMedicamentos.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, 290));
 
         jPanel1.add(panelMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 250, 340));
 
@@ -493,6 +525,10 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JPanel pC;
     public javax.swing.JPanel pDP;
     public javax.swing.JPanel panelCitas;
@@ -502,10 +538,10 @@ public class PantallaPaciente extends javax.swing.JFrame {
     public javax.swing.JTextField txtContr;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtFecha;
-    private javax.swing.JLabel txtInfoDatos;
-    private javax.swing.JLabel txtInfoDatos1;
-    private javax.swing.JLabel txtInfoDatos2;
-    private javax.swing.JLabel txtInfoDatos3;
+    public javax.swing.JTextArea txtInfoDatosC;
+    public javax.swing.JTextArea txtInfoDatosP;
+    public javax.swing.JTextArea txtInfoDiagnostico;
+    public javax.swing.JTextArea txtInfoMedicamentos;
     public javax.swing.JTextField txtNom;
     public javax.swing.JTextField txtNomC;
     public static javax.swing.JLabel txtNombreP;
