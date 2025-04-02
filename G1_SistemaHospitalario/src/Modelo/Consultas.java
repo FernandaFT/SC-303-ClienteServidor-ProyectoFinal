@@ -22,6 +22,11 @@ public class Consultas extends Conexion {
         Connection con = getConexion();
         String sql = "INSERT INTO registro(usuario, telefono, correo, contrasena, rol) VALUES(?,?,?,?,?)";
         
+        if (con == null) {
+            System.out.println("Error: Conexión a la base de datos no establecida.");
+        }
+
+        
         try{
             ps = con.prepareStatement(sql);
             ps.setString(1, registro.getUsuario());
@@ -29,18 +34,22 @@ public class Consultas extends Conexion {
             ps.setString(3, registro.getCorreo());
             ps.setString(4, registro.getContrasena());
             ps.setString(5, registro.getRol());
+            System.out.println("Ejecutando registro con usuario: " + registro.getUsuario());
+
             
             ps.execute();
             MensajeDialogo.mostrarMensaje("Usuario registrado con éxito", "Registro Exitoso", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
             return true;
         }catch(SQLException e){
-            System.err.println("Error en SQL: " + e.getMessage());
+            //System.err.println("Error en SQL: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error en el registro: " + e.getMessage());
             return false;
         }finally{
             try{
                 con.close();
             }catch(SQLException e){
-                System.err.println(e);
+                //System.err.println(e);
+                JOptionPane.showMessageDialog(null, "Error en el registro: " + e.getMessage());
             }
         }
     }
@@ -110,6 +119,7 @@ public class Consultas extends Conexion {
             rs = ps.executeQuery();
             
             if(rs.next()){
+                System.out.println("Usuario no encontrado en la base de datos.");
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setTelefono(rs.getString("telefono"));
                 usuario.setCorreo(rs.getString("correo"));

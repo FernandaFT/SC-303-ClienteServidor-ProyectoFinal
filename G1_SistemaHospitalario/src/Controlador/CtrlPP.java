@@ -27,26 +27,12 @@ public class CtrlPP implements ActionListener {
         this.vistaPP.btnModificarD.addActionListener(this);
         this.vistaPP.btnReservar.addActionListener(this);
         this.vistaPP.btnEliminar.addActionListener(this);
-        
-//        this.vistaPP.cmbDatos.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (vistaPP.cmbDatos.getSelectedItem().equals("Datos Personales")) {
-//                    vistaPP.panelDatosP.setVisible(true);
-//                    vistaPP.panelDatosP.revalidate();
-//                    vistaPP.panelDatosP.repaint();
-//                } else {
-//                    vistaPP.panelDatosP.setVisible(false);
-//                    vistaPP.panelDatosP.revalidate();
-//                    vistaPP.panelDatosP.repaint();
-//                }
-//            }
-//        });
     }
 
     public void iniciar(){
         vistaPP.setVisible(true);
         vistaPP.setLocationRelativeTo(null);
+
     }
     public void limpiar(){
         vistaPP.txtNom.setText("");
@@ -63,7 +49,8 @@ public class CtrlPP implements ActionListener {
         //botón buscar
         if(e.getSource() == vistaPP.btnBuscar){
             modelo.setUsuario(vistaPP.txtNom.getText().trim());
-            
+            System.out.println("Buscando usuario: " + modelo.getUsuario());
+
             if(consulta.buscar(modelo)){
                 vistaPP.txtTel.setText(modelo.getTelefono());
                 vistaPP.txtCorreo.setText(modelo.getCorreo());

@@ -5,6 +5,8 @@
 package Vista;
 
 import g1_sistemahospitalario.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -17,8 +19,28 @@ public class PantallaPaciente extends javax.swing.JFrame {
      */
     public PantallaPaciente() {
         initComponents();
-        //panelDatosP.setVisible(false);
+        // Ocultar paneles al inicio
+        panelDatosP.setVisible(false);
         panelCitas.setVisible(false);
+        panelDiagnostico.setVisible(false);
+        panelMedicamentos.setVisible(false);
+
+        // Agregar ActionListener al cmbDatos
+        cmbDatos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cmbDatos.getSelectedItem() == null) {
+                    System.out.println("Error: cmbDatos no tiene selección válida.");
+                    return;
+                }
+
+                String seleccion = cmbDatos.getSelectedItem().toString();
+                panelDatosP.setVisible(seleccion.equals("Datos Personales"));
+                panelCitas.setVisible(seleccion.equals("Citas"));
+                panelDiagnostico.setVisible(seleccion.equals("Diagnósticos"));
+                panelMedicamentos.setVisible(seleccion.equals("Medicamentos"));
+            }
+        });
     }
     
     //Nombre del usuario mostrado en la pantallas
@@ -49,6 +71,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
         txtContr = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnModificarD = new javax.swing.JButton();
+        pDP = new javax.swing.JPanel();
+        txtInfoDatos = new javax.swing.JLabel();
         panelCitas = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtNomC = new javax.swing.JTextField();
@@ -58,8 +82,12 @@ public class PantallaPaciente extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
         btnReservar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        txtInfoDatos = new javax.swing.JLabel();
+        pC = new javax.swing.JPanel();
+        txtInfoDatos2 = new javax.swing.JLabel();
+        panelDiagnostico = new javax.swing.JPanel();
+        txtInfoDatos1 = new javax.swing.JLabel();
+        panelMedicamentos = new javax.swing.JPanel();
+        txtInfoDatos3 = new javax.swing.JLabel();
         bgP = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
@@ -128,10 +156,22 @@ public class PantallaPaciente extends javax.swing.JFrame {
             }
         });
 
+        pDP.setBackground(new java.awt.Color(255, 255, 255));
+        pDP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Kodchasan", 0, 13), new java.awt.Color(0, 204, 204))); // NOI18N
+        pDP.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        pDP.setPreferredSize(new java.awt.Dimension(372, 526));
+        pDP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtInfoDatos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        pDP.add(txtInfoDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 100));
+
         javax.swing.GroupLayout panelDatosPLayout = new javax.swing.GroupLayout(panelDatosP);
         panelDatosP.setLayout(panelDatosPLayout);
         panelDatosPLayout.setHorizontalGroup(
             panelDatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pDP, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelDatosPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,17 +191,17 @@ public class PantallaPaciente extends javax.swing.JFrame {
                         .addGroup(panelDatosPLayout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtContr)))
+                            .addComponent(txtContr, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelDatosPLayout.createSequentialGroup()
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btnModificarD)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosPLayout.setVerticalGroup(
             panelDatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosPLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosPLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(panelDatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNom))
@@ -181,10 +221,11 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 .addGroup(panelDatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(btnModificarD))
-                .addGap(36, 36, 36))
+                .addGap(18, 18, 18)
+                .addComponent(pDP, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(panelDatosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 250, 210));
+        jPanel1.add(panelDatosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 350));
 
         panelCitas.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -231,36 +272,47 @@ public class PantallaPaciente extends javax.swing.JFrame {
             }
         });
 
+        pC.setBackground(new java.awt.Color(255, 255, 255));
+        pC.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Kodchasan", 0, 13), new java.awt.Color(0, 204, 204))); // NOI18N
+        pC.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        pC.setPreferredSize(new java.awt.Dimension(372, 526));
+        pC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtInfoDatos2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        pC.add(txtInfoDatos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 100));
+
         javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
         panelCitas.setLayout(panelCitasLayout);
         panelCitasLayout.setHorizontalGroup(
             panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCitasLayout.createSequentialGroup()
+                .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelCitasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panelCitasLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelCitasLayout.createSequentialGroup()
-                            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8))
-                            .addGap(18, 18, 18)
-                            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cmbSelectM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtFecha))))
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbSelectM, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelCitasLayout.createSequentialGroup()
                         .addComponent(btnReservar)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCitasLayout.setVerticalGroup(
             panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCitasLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCitasLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -276,21 +328,33 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReservar)
                     .addComponent(btnEliminar))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 250, 210));
+        jPanel1.add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 350));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Kodchasan", 0, 13), new java.awt.Color(0, 204, 204))); // NOI18N
-        jPanel2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(372, 526));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelDiagnostico.setBackground(new java.awt.Color(255, 255, 255));
+        panelDiagnostico.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)), "Diagnóstico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Kodchasan", 0, 13), new java.awt.Color(0, 204, 204))); // NOI18N
+        panelDiagnostico.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        panelDiagnostico.setPreferredSize(new java.awt.Dimension(372, 526));
+        panelDiagnostico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtInfoDatos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        jPanel2.add(txtInfoDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 100));
+        txtInfoDatos1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        panelDiagnostico.add(txtInfoDatos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 290));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 250, 150));
+        jPanel1.add(panelDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 250, 340));
+
+        panelMedicamentos.setBackground(new java.awt.Color(255, 255, 255));
+        panelMedicamentos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)), "Medicamentos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Kodchasan", 0, 13), new java.awt.Color(0, 204, 204))); // NOI18N
+        panelMedicamentos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        panelMedicamentos.setPreferredSize(new java.awt.Dimension(372, 526));
+        panelMedicamentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtInfoDatos3.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        panelMedicamentos.add(txtInfoDatos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 290));
+
+        jPanel1.add(panelMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 250, 340));
 
         bgP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg2.jpg"))); // NOI18N
         bgP.setText("background");
@@ -389,13 +453,19 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel panelCitas;
+    public javax.swing.JPanel pC;
+    public javax.swing.JPanel pDP;
+    public javax.swing.JPanel panelCitas;
     public javax.swing.JPanel panelDatosP;
+    public javax.swing.JPanel panelDiagnostico;
+    public javax.swing.JPanel panelMedicamentos;
     public javax.swing.JTextField txtContr;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtFecha;
     private javax.swing.JLabel txtInfoDatos;
+    private javax.swing.JLabel txtInfoDatos1;
+    private javax.swing.JLabel txtInfoDatos2;
+    private javax.swing.JLabel txtInfoDatos3;
     public javax.swing.JTextField txtNom;
     public javax.swing.JTextField txtNomC;
     public static javax.swing.JLabel txtNombreP;
