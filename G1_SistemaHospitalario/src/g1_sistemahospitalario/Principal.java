@@ -36,7 +36,7 @@ public class Principal {
         //Crear los controladores
         CtrlLogin ctrlLogin = new CtrlLogin(reg,cons,vistaLogin);
         CtrlRegistro ctrlRegistro = new CtrlRegistro(reg, cons,vistaRegistro, vistaLogin);
-        CtrlPP ctrlPaciente = new CtrlPP(reg, cons, vistaPaciente);
+        CtrlPP ctrlPaciente = new CtrlPP(reg, cons, vistaPaciente,vistaLogin);
         
         // Asignar la referencia de ctrlRegistro a ctrlLogin
         ctrlLogin.setCtrlRegistro(ctrlRegistro);

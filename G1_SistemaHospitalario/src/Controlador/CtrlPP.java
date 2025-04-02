@@ -4,6 +4,7 @@ package Controlador;
 import Modelo.Consultas;
 import Modelo.MensajeDialogo;
 import Modelo.RegistroU;
+import Vista.Login;
 import Vista.PantallaPaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,15 +19,16 @@ public class CtrlPP implements ActionListener {
     private final RegistroU modelo;
     private final Consultas consulta;
     private final PantallaPaciente vistaPP;
+    private final Login vistaLogin;
 
-    public CtrlPP(RegistroU modelo, Consultas consulta, PantallaPaciente vistaPP) {
+    public CtrlPP(RegistroU modelo, Consultas consulta, PantallaPaciente vistaPP, Login vistaLogin) {
         this.modelo = modelo;
         this.consulta = consulta;
         this.vistaPP = vistaPP;
+        this.vistaLogin = vistaLogin;
         this.vistaPP.btnBuscar.addActionListener(this);
         this.vistaPP.btnModificarD.addActionListener(this);
-        this.vistaPP.btnReservar.addActionListener(this);
-        this.vistaPP.btnEliminar.addActionListener(this);
+        this.vistaPP.btnSalir.addActionListener(this);
     }
 
     public void iniciar(){
@@ -60,11 +62,26 @@ public class CtrlPP implements ActionListener {
                 limpiar();
             }
         }
+        
         //botón modificar
-        //botón reservar
-        //botón eliminar
-  
-    }
-    
-    
+        if(e.getSource() == vistaPP.btnModificarD){
+            String usuario = vistaPP.txtNom.getText();
+            String tel = vistaPP.txtTel.getText();
+            String email = vistaPP.txtCorreo.getText();
+            String pw = vistaPP.txtContr.getText();
+            
+            if(consulta.modificar(modelo)){
+                MensajeDialogo.mostrarMensaje("Registro modificado", "Confirmación", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
+                limpiar();
+            }else{
+                MensajeDialogo.mostrarMensaje("Error al modificar", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+                limpiar();
+            }
+        }
+        //botón salir
+        if(e.getSource() == vistaPP.btnSalir){
+            vistaPP.dispose();
+            vistaLogin.setVisible(true);
+        }
+    }  
 }
