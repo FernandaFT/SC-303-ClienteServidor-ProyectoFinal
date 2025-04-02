@@ -115,7 +115,7 @@ public class PantallaMedico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgM;
-    private javax.swing.JToggleButton btnSalir;
+    public javax.swing.JToggleButton btnSalir;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel txtNombreM;
     // End of variables declaration//GEN-END:variables

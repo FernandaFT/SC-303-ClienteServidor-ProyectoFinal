@@ -15,11 +15,41 @@ import javax.swing.JOptionPane;
  */
 public class Consultas extends Conexion {
     
-    
+//    public boolean registro(RegistroU registro){
+//        
+//        PreparedStatement ps = null;
+//        Connection con = getConexion();
+//        System.out.println("Conexión: " + con);
+//        String sql = "INSERT INTO registro(usuario, telefono, correo, contrasena, rol) VALUES(?,?,?,?,?)";
+//
+//        try {
+//            ps = con.prepareStatement(sql);
+//            ps.setString(1, registro.getUsuario());
+//            ps.setString(2, registro.getTelefono());
+//            ps.setString(3, registro.getCorreo());
+//            ps.setString(4, registro.getContrasena());
+//            ps.setString(5, registro.getRol());
+//
+//            int filasAfectadas = ps.executeUpdate();
+//            if (filasAfectadas > 0) {
+//                MensajeDialogo.mostrarMensaje("Usuario registrado con éxito", "Registro Exitoso", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
+//                return true;
+//            } else {
+//                System.out.println("No se insertó ningún registro.");
+//                return false;
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(null, "Error en el registro: " + e.getMessage());
+//            return false;
+//        }
+//    }
+      
     public boolean registro(RegistroU registro){
         
         PreparedStatement ps = null;
         Connection con = getConexion();
+        System.out.println("Conexión: " + con);
         String sql = "INSERT INTO registro(usuario, telefono, correo, contrasena, rol) VALUES(?,?,?,?,?)";
 
         try{
