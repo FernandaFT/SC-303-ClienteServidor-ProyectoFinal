@@ -34,6 +34,7 @@ public class PantallaMedico extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtNombreM = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JToggleButton();
         bgM = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -43,6 +44,17 @@ public class PantallaMedico extends javax.swing.JFrame {
 
         txtNombreM.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jPanel1.add(txtNombreM, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 250, -1));
+
+        btnSalir.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(0, 204, 204));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         bgM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg2.jpg"))); // NOI18N
         jPanel1.add(bgM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 530));
@@ -60,6 +72,10 @@ public class PantallaMedico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,6 +115,7 @@ public class PantallaMedico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgM;
+    private javax.swing.JToggleButton btnSalir;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel txtNombreM;
     // End of variables declaration//GEN-END:variables

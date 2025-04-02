@@ -59,6 +59,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txtNombreP = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JToggleButton();
         cmbDatos = new javax.swing.JComboBox<>();
         panelDatosP = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -100,6 +101,17 @@ public class PantallaPaciente extends javax.swing.JFrame {
 
         txtNombreP.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jPanel1.add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 250, -1));
+
+        btnSalir.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(0, 204, 204));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         cmbDatos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         cmbDatos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione--", "Datos Personales", "Citas", "Diagnósticos", "Medicamentos" }));
@@ -400,6 +412,10 @@ public class PantallaPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbSelectMActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +458,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnModificarD;
     public javax.swing.JButton btnReservar;
+    private javax.swing.JToggleButton btnSalir;
     public javax.swing.JComboBox<String> cmbDatos;
     public javax.swing.JComboBox<String> cmbSelectM;
     private javax.swing.JLabel jLabel1;
