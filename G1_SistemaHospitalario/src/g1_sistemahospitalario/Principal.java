@@ -24,17 +24,22 @@ public class Principal {
      */
     public static void main(String[] args) {
         
+        //Crear los modelos
         RegistroU reg = new RegistroU();
         Consultas cons = new Consultas();
-        Login vista = new Login();
-        Registro vistaR = new Registro();
-        PantallaPaciente vistaPP = new PantallaPaciente();
         
-        CtrlLogin ctrlL = new CtrlLogin(reg, cons, vista);
-        CtrlRegistro ctrlR = new CtrlRegistro(reg, cons,vistaR);
-        CtrlPP ctrlpp = new CtrlPP(reg, cons, vistaPP);
+        //Crear las vistas
+        Login vistaLogin = new Login();
+        Registro vistaRegistro = new Registro();
+        PantallaPaciente vistaPaciente = new PantallaPaciente();
         
-        ctrlL.iniciar();
+        //Crear los controladores
+        CtrlLogin ctrlLogin = new CtrlLogin(reg,cons,vistaLogin);
+        CtrlRegistro ctrlRegistro = new CtrlRegistro(reg, cons,vistaRegistro);
+        CtrlPP ctrlPaciente = new CtrlPP(reg, cons, vistaPaciente);
+        
+        //Inicar la pantalla de Login
+        ctrlLogin.iniciar();
     }
  
 }
