@@ -85,6 +85,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         pC = new javax.swing.JPanel();
         txtInfoDatos2 = new javax.swing.JLabel();
+        btnBuscarP = new javax.swing.JButton();
         panelDiagnostico = new javax.swing.JPanel();
         txtInfoDatos1 = new javax.swing.JLabel();
         panelMedicamentos = new javax.swing.JPanel();
@@ -243,7 +244,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
         panelCitas.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        jLabel6.setText("Nombre");
+        jLabel6.setText("Paciente");
 
         txtNomC.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         txtNomC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -294,6 +295,16 @@ public class PantallaPaciente extends javax.swing.JFrame {
         txtInfoDatos2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         pC.add(txtInfoDatos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 100));
 
+        btnBuscarP.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnBuscarP.setForeground(new java.awt.Color(0, 204, 204));
+        btnBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        btnBuscarP.setText("Buscar");
+        btnBuscarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
         panelCitas.setLayout(panelCitasLayout);
         panelCitasLayout.setHorizontalGroup(
@@ -318,7 +329,10 @@ public class PantallaPaciente extends javax.swing.JFrame {
                             .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelCitasLayout.createSequentialGroup()
                         .addComponent(btnReservar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarP))
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
                         .addComponent(btnEliminar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -333,16 +347,19 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(cmbSelectM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReservar)
-                    .addComponent(btnEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEliminar)
+                .addGap(12, 12, 12)
+                .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel1.add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 350));
@@ -417,6 +434,10 @@ public class PantallaPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnBuscarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -456,6 +477,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgP;
     public javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarP;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnModificarD;
     public javax.swing.JButton btnReservar;
