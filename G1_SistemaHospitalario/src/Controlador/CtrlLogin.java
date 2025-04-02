@@ -18,6 +18,7 @@ public class CtrlLogin implements ActionListener {
     private final RegistroU modelo;
     private final Consultas consulta;
     private final Login vista;
+    private CtrlRegistro ctrlRegistro;
 
     public CtrlLogin(RegistroU modelo, Consultas consulta, Login vista) {
         this.modelo = modelo;
@@ -25,6 +26,10 @@ public class CtrlLogin implements ActionListener {
         this.vista = vista;
         this.vista.btnCrear.addActionListener(this);
         this.vista.btnLogin.addActionListener(this);
+    }
+    
+    public void setCtrlRegistro(CtrlRegistro ctrlRegistro) {
+        this.ctrlRegistro = ctrlRegistro;
     }
     
     public void iniciar(){
@@ -39,14 +44,13 @@ public class CtrlLogin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         //botón crear nuevo usuario
         if(e.getSource() == vista.btnCrear){
-            Registro reg = new Registro();
-            vista.dispose();
-            reg.setVisible(true);
-            reg.setLocationRelativeTo(null);
+            vista.setVisible(false);
+            ctrlRegistro.iniciar();
         }
+        
         //botón login
         if(e.getSource() == vista.btnLogin){
             String usuario = vista.txtUsuario.getText().trim();
