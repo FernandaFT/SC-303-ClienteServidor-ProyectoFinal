@@ -233,8 +233,9 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 .addGroup(panelDatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(btnModificarD))
-                .addGap(18, 18, 18)
-                .addComponent(pDP, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(pDP, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.add(panelDatosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 350));
@@ -458,7 +459,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnModificarD;
     public javax.swing.JButton btnReservar;
-    private javax.swing.JToggleButton btnSalir;
+    public javax.swing.JToggleButton btnSalir;
     public javax.swing.JComboBox<String> cmbDatos;
     public javax.swing.JComboBox<String> cmbSelectM;
     private javax.swing.JLabel jLabel1;
