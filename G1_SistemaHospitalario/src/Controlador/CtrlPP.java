@@ -56,6 +56,16 @@ public class CtrlPP implements ActionListener {
                 vistaPP.txtTel.setText(modelo.getTelefono());
                 vistaPP.txtCorreo.setText(modelo.getCorreo());
                 vistaPP.txtContr.setText(modelo.getContrasena());
+                
+                //Mostrar la info del Usuario en el box Datos
+                String infoUsuario = String.format(
+                    "Usuario: %s\nTeléfono: %s\nCorreo: %s\nContraseña: %s",
+                    modelo.getUsuario(),
+                    modelo.getTelefono(),
+                    modelo.getCorreo(),
+                    modelo.getContrasena()
+                );
+                vistaPP.txtInfoDatosP.setText(infoUsuario);
             }else{
                 MensajeDialogo.mostrarMensaje("No se encontró registro", "Error", "src/images/mark.png", JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
@@ -71,6 +81,15 @@ public class CtrlPP implements ActionListener {
 
             if(consulta.modificar(modelo)){
                 MensajeDialogo.mostrarMensaje("Registro modificado", "Confirmación", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
+                //Mostrar la info del Usuario en el box Datos
+                String infoUsuario = String.format(
+                    "Usuario: %s\nTeléfono: %s\nCorreo: %s\nContraseña: %s",
+                    modelo.getUsuario(),
+                    modelo.getTelefono(),
+                    modelo.getCorreo(),
+                    modelo.getContrasena()
+                );
+                vistaPP.txtInfoDatosP.setText(infoUsuario);
                 limpiar();
             } else {
                 MensajeDialogo.mostrarMensaje("Error al modificar", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
