@@ -38,6 +38,8 @@ public class Principal {
         CtrlRegistro ctrlRegistro = new CtrlRegistro(reg, cons,vistaRegistro);
         CtrlPP ctrlPaciente = new CtrlPP(reg, cons, vistaPaciente);
         
+        // Asignar la referencia de ctrlRegistro a ctrlLogin
+        ctrlLogin.setCtrlRegistro(ctrlRegistro);
         //Inicar la pantalla de Login
         ctrlLogin.iniciar();
     }

@@ -27,6 +27,7 @@ public class CtrlRegistro implements ActionListener {
         this.vistaR.btnCrearC.addActionListener(this);
     }
     
+    
     public void iniciar(){
         vistaR.setVisible(true);
         vistaR.setLocationRelativeTo(null);
@@ -41,9 +42,9 @@ public class CtrlRegistro implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+  
         //botón crear usuario
-        if(e.getSource() == vistaR.btnCrearC){
+        if(e.getSource().equals(vistaR.btnCrearC)){
             
             String usuario = vistaR.txtUsuario.getText();
             String tel = vistaR.txtTelefono.getText();
@@ -78,16 +79,18 @@ public class CtrlRegistro implements ActionListener {
                 MensajeDialogo.mostrarMensaje(errores.toString(), "Errores de Validación", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            
+
             //Configuramos el modelo
             modelo.setUsuario(usuario);
             modelo.setTelefono(tel);
             modelo.setCorreo(email);
             modelo.setContrasena(pw);
             modelo.setRol(rol);
-     
+
             //Se crea un nuevo usuario
-            if (consulta.registro(modelo)) {
+            boolean exito = consulta.registro(modelo);
+            
+            if (exito) {
                 limpiar();
                 Login login = new Login();
                 vistaR.dispose();
