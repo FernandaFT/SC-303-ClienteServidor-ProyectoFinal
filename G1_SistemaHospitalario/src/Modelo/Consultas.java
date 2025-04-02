@@ -112,7 +112,6 @@ public class Consultas extends Conexion {
             rs = ps.executeQuery();
             
             if(rs.next()){
-                System.out.println("Usuario no encontrado en la base de datos.");
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setTelefono(rs.getString("telefono"));
                 usuario.setCorreo(rs.getString("correo"));
