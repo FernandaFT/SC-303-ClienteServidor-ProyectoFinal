@@ -18,6 +18,7 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
     }
+
     
 //    public void limpiar(){
 //        txtUsuario.setText("");

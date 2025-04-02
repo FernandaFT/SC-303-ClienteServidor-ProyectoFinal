@@ -18,12 +18,14 @@ public class CtrlRegistro implements ActionListener {
     private final RegistroU modelo;
     private final Consultas consulta;
     private final Registro vistaR;
+    private final Login vistaLogin;
     
 
-    public CtrlRegistro(RegistroU modelo, Consultas consulta, Registro vistaR) {
+    public CtrlRegistro(RegistroU modelo, Consultas consulta, Registro vistaR, Login vistaLogin) {
         this.modelo = modelo;
         this.consulta = consulta;
         this.vistaR = vistaR;
+        this.vistaLogin =  vistaLogin; // guardamos la referencia al login
         this.vistaR.btnCrearC.addActionListener(this);
     }
     
@@ -92,10 +94,9 @@ public class CtrlRegistro implements ActionListener {
             
             if (exito) {
                 limpiar();
-                Login login = new Login();
                 vistaR.dispose();
-                login.setLocationRelativeTo(null);
-                login.setVisible(true);
+                vistaLogin.setLocationRelativeTo(null);
+                vistaLogin.setVisible(true);
             }
         }
     }
