@@ -35,6 +35,11 @@ public class CtrlPP implements ActionListener {
         vistaPP.setVisible(true);
         vistaPP.setLocationRelativeTo(null);
     }
+    
+    public PantallaPaciente getVista(){
+        return vistaPP;
+    }
+    
     public void limpiar(){
         vistaPP.txtNom.setText("");
         vistaPP.txtTel.setText("");
