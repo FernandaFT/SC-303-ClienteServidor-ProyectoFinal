@@ -5,6 +5,7 @@ import Modelo.Consultas;
 import Modelo.MensajeDialogo;
 import Modelo.RegistroU;
 import Vista.Login;
+import Vista.PantallaPaciente;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -19,6 +20,7 @@ public class CtrlLogin implements ActionListener {
     private final Login vista;
     private CtrlRegistro ctrlRegistro;
     private CtrlPP ctrlPaciente;
+    private CtrlPM ctrlMedico;
 
     public CtrlLogin(RegistroU modelo, Consultas consulta, Login vista) {
         this.modelo = modelo;
@@ -34,6 +36,10 @@ public class CtrlLogin implements ActionListener {
     
     public void setCtrlPaciente(CtrlPP ctrlPaciente){
         this.ctrlPaciente = ctrlPaciente;
+    }
+    
+    public void setCtrlMedico(CtrlPM ctrlMedico){
+        this.ctrlMedico = ctrlMedico;
     }
     
     public void iniciar(){
@@ -83,12 +89,24 @@ public class CtrlLogin implements ActionListener {
             modelo.setUsuario(usuario);
             modelo.setContrasena(pw);
             
-            //Inicia sesión
-            if(consulta.login(modelo)){
+            if (consulta.login(modelo)) {
                 limpiar();
                 vista.dispose();
-                ctrlPaciente.iniciar();
+
+                if ("Paciente".equalsIgnoreCase(modelo.getRol())) {
+                    ctrlPaciente.iniciar();
+                } else if ("Médico".equalsIgnoreCase(modelo.getRol())) {
+                    ctrlMedico.iniciar(); // Llamamos al nuevo controlador para médicos
+                }
             }
+            
+            
+//            //Inicia sesión
+//            if(consulta.login(modelo)){
+//                limpiar();
+//                vista.dispose();
+//                ctrlPaciente.iniciar();
+//            }
         }
         
     }
