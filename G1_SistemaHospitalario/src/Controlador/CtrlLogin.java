@@ -94,22 +94,13 @@ public class CtrlLogin implements ActionListener {
                 vista.dispose();
 
                 if ("Paciente".equalsIgnoreCase(modelo.getRol())) {
+                    ctrlPaciente.getVista().setNombreUsuario(modelo.getUsuario());
                     ctrlPaciente.iniciar();
                 } else if ("Médico".equalsIgnoreCase(modelo.getRol())) {
+                    ctrlMedico.getVista().setNombreUsuario(modelo.getUsuario());
                     ctrlMedico.iniciar(); // Llamamos al nuevo controlador para médicos
                 }
             }
-            
-            
-//            //Inicia sesión
-//            if(consulta.login(modelo)){
-//                limpiar();
-//                vista.dispose();
-//                ctrlPaciente.iniciar();
-//            }
-        }
-        
-    }
-    
-        
+        }  
+    }      
 }

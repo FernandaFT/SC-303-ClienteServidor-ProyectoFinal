@@ -5,6 +5,7 @@ import Modelo.Consultas;
 import Modelo.RegistroU;
 import Vista.Login;
 import Vista.PantallaMedico;
+import Vista.PantallaPaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +30,10 @@ public class CtrlPM implements ActionListener {
     public void iniciar(){
         vistaPM.setVisible(true);
         vistaPM.setLocationRelativeTo(null);
+    }
+    
+    public PantallaMedico getVista(){
+        return vistaPM;
     }
     
     @Override
