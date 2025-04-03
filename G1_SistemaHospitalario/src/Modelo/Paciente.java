@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import g1_sistemahospitalario.*;
 import java.util.List;
 
 /**
@@ -26,6 +25,11 @@ public class Paciente extends RegistroU {
         this.fechaNacimiento = fechaNacimiento;
         this.enfermedadesPrevias = enfermedadesPrevias;
     }
+
+    public Paciente(String numeroHistoriaClinica) {
+        this.numeroHistoriaClinica = numeroHistoriaClinica;
+    }
+    
     
     public void agregarEnfermedad(String enfermedad){
         enfermedadesPrevias.add(enfermedad);

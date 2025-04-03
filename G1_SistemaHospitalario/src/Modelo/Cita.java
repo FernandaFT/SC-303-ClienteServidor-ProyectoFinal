@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import g1_sistemahospitalario.*;
 import java.util.*;
 
 /**
@@ -24,7 +23,6 @@ public class Cita {
         this.hora = hora;
         this.paciente = paciente;
         this.medico = medico;
-        this.estado = new CitaPendiente(this); //Estado incial
     }
 
     public Date getFecha() {
