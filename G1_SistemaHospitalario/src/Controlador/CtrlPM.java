@@ -5,7 +5,6 @@ import Modelo.Consultas;
 import Modelo.RegistroU;
 import Vista.Login;
 import Vista.PantallaMedico;
-import Vista.PantallaPaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
