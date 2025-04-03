@@ -34,7 +34,6 @@ public class CtrlPP implements ActionListener {
     public void iniciar(){
         vistaPP.setVisible(true);
         vistaPP.setLocationRelativeTo(null);
-
     }
     public void limpiar(){
         vistaPP.txtNom.setText("");

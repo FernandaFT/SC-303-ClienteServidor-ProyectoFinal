@@ -46,7 +46,7 @@ public class Consultas extends Conexion {
             }
         }
     }
-    
+  
     public boolean login(RegistroU usuario){
         
         PreparedStatement ps = null;
@@ -63,26 +63,28 @@ public class Consultas extends Conexion {
             if(rs.next()){
                 String rol = rs.getString("rol");
                 String nombreUsuario = rs.getString("usuario");
-                
-                if("Paciente".equalsIgnoreCase(rol)){
-                    PantallaPaciente pp = new PantallaPaciente();
-                    pp.setNombreUsuario(nombreUsuario);
-                    pp.setLocationRelativeTo(null);
-                    pp.setVisible(true);
-                } else if("Médico".equalsIgnoreCase(rol)){
-                    PantallaMedico pm = new PantallaMedico();
-                    pm.setNombreUsuario(nombreUsuario);
-                    pm.setLocationRelativeTo(null);
-                    pm.setVisible(true);
-                } else {
-                    MensajeDialogo.mostrarMensaje("Rol no reconocido", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
-                    return false;
-                }
+                usuario.setRol(rol);
                 return true;
+                
+//                if("Paciente".equalsIgnoreCase(rol)){
+//                    PantallaPaciente pp = new PantallaPaciente();
+//                    pp.setNombreUsuario(nombreUsuario);
+//                    pp.setLocationRelativeTo(null);
+//                    pp.setVisible(true);
+//                } else if("Médico".equalsIgnoreCase(rol)){
+//                    PantallaMedico pm = new PantallaMedico();
+//                    pm.setNombreUsuario(nombreUsuario);
+//                    pm.setLocationRelativeTo(null);
+//                    pm.setVisible(true);
+//                } else {
+//                    MensajeDialogo.mostrarMensaje("Rol no reconocido", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+//                    return false;
+//                }
+//                return true;
             }else{
                 MensajeDialogo.mostrarMensaje("Usuario o Contraseña incorrectos", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
                 return false;
-            }
+            } 
             
         }catch(SQLException e){
             System.err.println("Error en SQL: " + e.getMessage());
