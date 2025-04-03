@@ -37,6 +37,7 @@ public class CtrlPP implements ActionListener {
         vistaPP.setVisible(true);
         vistaPP.setLocationRelativeTo(null);
         cargarMedicos();
+        mostrarUsuarioLogueado();
     }
     
     public PantallaPaciente getVista(){
@@ -60,6 +61,16 @@ public class CtrlPP implements ActionListener {
         }
     }
     
+    public void mostrarUsuarioLogueado() {
+        String nombreUsuario = consulta.obtenerNombreUsuario(modelo.getUsuario());
+        if (nombreUsuario != null) {
+            vistaPP.txtNomC.setText(nombreUsuario);
+        } else {
+            vistaPP.txtNomC.setText("Usuario no encontrado");
+        }
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         

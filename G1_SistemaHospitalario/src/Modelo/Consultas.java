@@ -155,6 +155,35 @@ public class Consultas extends Conexion {
         } 
     }
     
+    public String obtenerNombreUsuario(String usuario) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+        String sql = "SELECT usuario FROM registro WHERE usuario = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("usuario");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error en SQL: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.err.println("Error al cerrar conexión: " + e.getMessage());
+            }
+        }
+        return null; // Retorna null si no encuentra el usuario
+    }
+
+    
     public List<String> obtenerMedicos(){
         List<String> listaMedicos = new ArrayList<>();
         Connection con = getConexion();
@@ -176,5 +205,5 @@ public class Consultas extends Conexion {
             }
         }
         return listaMedicos;
-    }
+    }  
 }

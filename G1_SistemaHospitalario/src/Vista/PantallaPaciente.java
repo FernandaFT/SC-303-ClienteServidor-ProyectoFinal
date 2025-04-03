@@ -258,6 +258,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel6.setText("Paciente");
 
+        txtNomC.setEditable(false);
+        txtNomC.setBackground(new java.awt.Color(255, 255, 255));
         txtNomC.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         txtNomC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
@@ -393,7 +395,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 350));
