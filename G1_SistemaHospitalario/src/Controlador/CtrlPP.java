@@ -1,14 +1,21 @@
 
 package Controlador;
 
+import Modelo.Cita;
 import Modelo.Consultas;
+import Modelo.Medico;
 import Modelo.MensajeDialogo;
+import Modelo.Paciente;
 import Modelo.RegistroU;
 import Vista.Login;
 import Vista.PantallaPaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
 
 /**
  *
@@ -29,6 +36,7 @@ public class CtrlPP implements ActionListener {
         this.vistaPP.btnBuscar.addActionListener(this);
         this.vistaPP.btnModificarD.addActionListener(this);
         this.vistaPP.btnSalir.addActionListener(this);
+        this.vistaPP.btnReservar.addActionListener(this);
     }
 
     public void iniciar(){
@@ -99,6 +107,10 @@ public class CtrlPP implements ActionListener {
                 MensajeDialogo.mostrarMensaje("Error al modificar", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
             }
         }
+        
+        //botón reservar cita
+        //botón buscar cita
+        //botón eliminar cita
         //botón salir
         if(e.getSource() == vistaPP.btnSalir){
             vistaPP.dispose();

@@ -5,7 +5,6 @@ import Modelo.Consultas;
 import Modelo.MensajeDialogo;
 import Modelo.RegistroU;
 import Vista.Login;
-import Vista.PantallaPaciente;
 import java.awt.event.*;
 import javax.swing.*;
 

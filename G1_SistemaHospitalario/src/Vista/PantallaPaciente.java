@@ -87,6 +87,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtInfoDatosC = new javax.swing.JTextArea();
         btnBuscarP = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtHora = new javax.swing.JTextField();
         panelDiagnostico = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtInfoDiagnostico = new javax.swing.JTextArea();
@@ -310,7 +312,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
         txtInfoDatosC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jScrollPane2.setViewportView(txtInfoDatosC);
 
-        pC.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 230, 120));
+        pC.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 230, 100));
 
         btnBuscarP.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         btnBuscarP.setForeground(new java.awt.Color(0, 204, 204));
@@ -322,6 +324,12 @@ public class PantallaPaciente extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel9.setText("Hora");
+
+        txtHora.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtHora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
         javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
         panelCitas.setLayout(panelCitasLayout);
         panelCitasLayout.setHorizontalGroup(
@@ -330,53 +338,62 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelCitasLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCitasLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCitasLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCitasLayout.createSequentialGroup()
+                                .addComponent(btnReservar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscarP))))
                     .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbSelectM, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbSelectM, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelCitasLayout.createSequentialGroup()
-                        .addComponent(btnReservar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscarP))
-                    .addGroup(panelCitasLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(68, 68, 68)
                         .addComponent(btnEliminar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCitasLayout.setVerticalGroup(
             panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCitasLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(cmbSelectM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReservar)
-                    .addComponent(btnBuscarP))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel9)
+                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarP)
+                    .addComponent(btnReservar))
+                .addGap(18, 18, 18)
                 .addComponent(btnEliminar)
-                .addGap(12, 12, 12)
-                .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pC, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jPanel1.add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 350));
@@ -523,6 +540,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -537,6 +555,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     public javax.swing.JTextField txtContr;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtFecha;
+    public javax.swing.JTextField txtHora;
     public javax.swing.JTextArea txtInfoDatosC;
     public javax.swing.JTextArea txtInfoDatosP;
     public javax.swing.JTextArea txtInfoDiagnostico;

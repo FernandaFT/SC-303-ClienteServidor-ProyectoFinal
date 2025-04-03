@@ -23,6 +23,11 @@ public class Medico extends RegistroU {
         this.salario = salario;
     }
 
+    public Medico(String usuario, String telefono, String correo) {
+        super(usuario, telefono, correo);
+    }
+    
+
     public Especialidad getEspecialidad() {
         return especialidad;
     }
