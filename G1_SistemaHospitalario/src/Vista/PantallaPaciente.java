@@ -565,4 +565,5 @@ public class PantallaPaciente extends javax.swing.JFrame {
     public static javax.swing.JLabel txtNombreP;
     public javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
+
 }
