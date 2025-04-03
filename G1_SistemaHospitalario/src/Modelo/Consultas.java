@@ -4,9 +4,8 @@
  */
 package Modelo;
 
-import Vista.PantallaMedico;
-import Vista.PantallaPaciente;
 import java.sql.*;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -156,4 +155,26 @@ public class Consultas extends Conexion {
         } 
     }
     
+    public List<String> obtenerMedicos(){
+        List<String> listaMedicos = new ArrayList<>();
+        Connection con = getConexion();
+        String sql = "SELECT usuario FROM registro WHERE rol = 'Medico'"; 
+        
+        try (PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                listaMedicos.add(rs.getString("usuario")); // Obtener el nombre del médico
+            }
+        } catch (SQLException e) {
+            System.err.println("Error en SQL: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.err.println("Error al cerrar conexión: " + e.getMessage());
+            }
+        }
+        return listaMedicos;
+    }
 }

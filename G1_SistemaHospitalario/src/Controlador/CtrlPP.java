@@ -1,20 +1,14 @@
 
 package Controlador;
 
-import Modelo.Cita;
 import Modelo.Consultas;
-import Modelo.Medico;
 import Modelo.MensajeDialogo;
-import Modelo.Paciente;
 import Modelo.RegistroU;
 import Vista.Login;
 import Vista.PantallaPaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
 import javax.swing.*;
 
 /**
@@ -42,6 +36,7 @@ public class CtrlPP implements ActionListener {
     public void iniciar(){
         vistaPP.setVisible(true);
         vistaPP.setLocationRelativeTo(null);
+        cargarMedicos();
     }
     
     public PantallaPaciente getVista(){
@@ -55,6 +50,14 @@ public class CtrlPP implements ActionListener {
         vistaPP.txtContr.setText("");
         vistaPP.txtNomC.setText("");
         vistaPP.txtFecha.setText("");
+    }
+    
+    public void cargarMedicos(){
+        List<String> medicos = consulta.obtenerMedicos();
+        vistaPP.cmbSelectM.removeAllItems();
+        for (String medico : medicos) {
+        vistaPP.cmbSelectM.addItem(medico); // Agregar cada médico al JComboBox
+        }
     }
     
     @Override
