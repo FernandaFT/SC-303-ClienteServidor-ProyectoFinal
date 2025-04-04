@@ -4,8 +4,6 @@
  */
 package Modelo;
 
-import g1_sistemahospitalario.*;
-
 /**
  *
  * @author fernandafajardo
@@ -14,20 +12,16 @@ public class Medico extends RegistroU {
     
     private Especialidad especialidad;
     private int numeroLicencia;
-    private double salario;
 
-    public Medico(Especialidad especialidad, int numeroLicencia, double salario, String usuario, String telefono, String correo) {
+    public Medico(Especialidad especialidad, int numeroLicencia, String usuario, String telefono, String correo) {
         super(usuario, telefono, correo);
         this.especialidad = especialidad;
         this.numeroLicencia = numeroLicencia;
-        this.salario = salario;
     }
 
-    public Medico(String usuario, String telefono, String correo) {
-        super(usuario, telefono, correo);
+    public Medico() {
     }
     
-
     public Especialidad getEspecialidad() {
         return especialidad;
     }
@@ -43,20 +37,8 @@ public class Medico extends RegistroU {
     public void setNumeroLicencia(int numeroLicencia) {
         this.numeroLicencia = numeroLicencia;
     }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
     
     public String verAgenda(){
         return "Mostrando agenda del médico: " + getUsuario();
-    }
-    
-    public void gestionarCita(Cita cita){
-        System.out.println("Gestionando cita con " + cita.getPaciente().getUsuario());
     }
 }

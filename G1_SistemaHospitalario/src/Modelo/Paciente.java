@@ -12,34 +12,23 @@ import java.util.List;
  */
 public class Paciente extends RegistroU {
     
-    private String numeroHistoriaClinica;
     private String fechaNacimiento;
-    private List<String> enfermedadesPrevias;
+    private List<String> diagnosticoEnfermedades;
 
     public Paciente() {
     }
 
-    public Paciente(String numeroHistoriaClinica, String fechaNacimiento, List<String> enfermedadesPrevias, String usuario, String telefono, String correo) {
+    public Paciente(String fechaNacimiento, List<String> diagnosticoEnfermedades, String usuario, String telefono, String correo) {
         super(usuario, telefono, correo);
-        this.numeroHistoriaClinica = numeroHistoriaClinica;
         this.fechaNacimiento = fechaNacimiento;
-        this.enfermedadesPrevias = enfermedadesPrevias;
+        this.diagnosticoEnfermedades = diagnosticoEnfermedades;
     }
 
-    public Paciente(String numeroHistoriaClinica) {
-        this.numeroHistoriaClinica = numeroHistoriaClinica;
-    }
-    
-    
-    public void agregarEnfermedad(String enfermedad){
-        enfermedadesPrevias.add(enfermedad);
-    }
-
-    public List<String> getEnfermedadesPrevias() {
-        return enfermedadesPrevias;
+    public List<String> diagnosticoEnfermedades() {
+        return diagnosticoEnfermedades;
     }
     
     public String consultarHistorialMedico(){
-        return "Historial médico de " + getUsuario() + ": " + enfermedadesPrevias;
+        return "Historial médico de " + getUsuario() + ": " + diagnosticoEnfermedades;
     }
 }

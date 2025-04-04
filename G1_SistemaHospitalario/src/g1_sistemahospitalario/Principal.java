@@ -42,7 +42,7 @@ public class Principal {
         CtrlPP ctrlPaciente = new CtrlPP(reg, cons, vistaPaciente,vistaLogin);
         CtrlPM ctrlMedico = new CtrlPM(reg, cons, vistaMedico, vistaLogin);
         
-        // Asignar la referencia de ctrlRegistro,ctrlPaciente a ctrlLogin
+        // Asignar la referencia de ctrlRegistro,ctrlPaciente,ctrlMedico a ctrlLogin
         ctrlLogin.setCtrlRegistro(ctrlRegistro);
         ctrlLogin.setCtrlPaciente(ctrlPaciente);
         ctrlLogin.setCtrlMedico(ctrlMedico);
