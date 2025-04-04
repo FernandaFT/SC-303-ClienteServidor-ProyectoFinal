@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.text.*;
 import java.util.*;
 
 /**
@@ -84,6 +85,16 @@ public class Cita {
     }
     
     public String generarReporteCita(){
-        return "Reporte de cita: " + fecha + " a las " + hora + " con " + medico.getUsuario();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaFormateada = sdf.format(fecha);
+        
+        return "Cita médica\n" + 
+                "Fecha: " + fechaFormateada + "\n" +
+                "Hora: " + hora + "\n" +
+                "Médico: Dr(a)." + medico.getUsuario() + "\n";
+                
     }
+//    public String generarReporteCita(){
+//        return "Reporte de cita: " + fecha + " a las " + hora + " con " + medico.getUsuario();
+//    }
 }

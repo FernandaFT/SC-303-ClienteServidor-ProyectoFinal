@@ -103,6 +103,9 @@ public class CtrlPP implements ActionListener {
             //Guarda cita en el archivo citas.txt
             guardarCitaArchivo(nuevaCita);
             
+            //Mostrar el reporte en el área de texto
+            vistaPP.txtInfoDatosC.setText(nuevaCita.generarReporteCita());
+            
             MensajeDialogo.mostrarMensaje("Cita reservada con éxito", "Confirmación", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
         }catch(ParseException e){
             MensajeDialogo.mostrarMensaje("Formato de fecha incorrecto (dd/MM/yyyy)", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
