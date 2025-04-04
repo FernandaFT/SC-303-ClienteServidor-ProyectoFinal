@@ -22,7 +22,7 @@ public class PantallaMedico extends javax.swing.JFrame {
         
     //Nombre del usuario mostrado en la pantalla
     public void setNombreUsuario(String nombre){
-        txtNombreM.setText("Bienvenid@, Dr/Dra. " + nombre);
+        txtNombreM.setText("Bienvenid@, Dr(a). " + nombre);
     }
 
     /**
