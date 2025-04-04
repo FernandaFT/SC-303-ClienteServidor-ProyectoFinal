@@ -527,7 +527,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgP;
     public javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscarP;
+    public javax.swing.JButton btnBuscarP;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnModificarD;
     public javax.swing.JButton btnReservar;

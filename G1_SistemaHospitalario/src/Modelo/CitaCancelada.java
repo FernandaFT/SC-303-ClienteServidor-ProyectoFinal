@@ -21,6 +21,6 @@ public class CitaCancelada extends EstadoCita{
 
     @Override
     public String generarInforme() {
-        return "Cita cancelada con " + cita.getMedico().getUsuario();
+        return "Cita cancelada con:\n" + cita.getMedico().getUsuario();
     }
 }

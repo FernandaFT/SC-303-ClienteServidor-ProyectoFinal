@@ -36,6 +36,8 @@ public class CtrlPP implements ActionListener {
         this.vistaPP.btnModificarD.addActionListener(this);
         this.vistaPP.btnSalir.addActionListener(this);
         this.vistaPP.btnReservar.addActionListener(this);
+        this.vistaPP.btnBuscarP.addActionListener(this);
+        this.vistaPP.btnEliminar.addActionListener(this);
     }
 
     public void iniciar(){
@@ -107,6 +109,11 @@ public class CtrlPP implements ActionListener {
             vistaPP.txtInfoDatosC.setText(nuevaCita.generarReporteCita());
             
             MensajeDialogo.mostrarMensaje("Cita reservada con éxito", "Confirmación", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
+            
+            //Limpiar campos
+            vistaPP.cmbSelectM.setSelectedIndex(0);
+            vistaPP.txtFecha.setText("");
+            vistaPP.txtHora.setText("");
         }catch(ParseException e){
             MensajeDialogo.mostrarMensaje("Formato de fecha incorrecto (dd/MM/yyyy)", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
         }
@@ -126,21 +133,107 @@ public class CtrlPP implements ActionListener {
         }
     }
     
-//    public void eliminarCita(){
-//        String nombrePaciente = vistaPP.txtNomC.getText().trim();
-//        String medicoSeleccionado = (String) vistaPP.cmbSelectM.getSelectedItem();
-//        String fecha =  vistaPP.txtFecha.getText().trim();
-//        String hora = vistaPP.txtHora.getText().trim();
-//        
-//        if(nombrePaciente.isEmpty() || medicoSeleccionado == null || fecha.isEmpty() || hora.isEmpty()){
-//            MensajeDialogo.mostrarMensaje("Todos los campos son obligatorios", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        try{
-//            
-//        }
-//        
-//    }
+    public  void encontrarCita(){
+        String fechaBuscar = vistaPP.txtFecha.getText().trim();
+        
+        try(BufferedReader br = new BufferedReader(new FileReader("citas.txt"))){
+            String linea;
+            boolean encontrada = false;
+            while((linea = br.readLine()) != null){
+                String [] partes = linea.split(";");
+                if(partes.length == 4){
+                    String paciente = partes[0];
+                    String medico = partes[1];
+                    String fecha = partes[2];
+                    String hora = partes[3];
+                    
+                    if(fecha.equals(fechaBuscar)){
+                        Paciente p = new Paciente();
+                        p.setUsuario(paciente);
+                        Medico m = new Medico();
+                        m.setUsuario(medico);
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaCita = sdf.parse(fecha);
+                        
+                        Cita cita = new Cita(fechaCita, hora, p,m);
+                        vistaPP.txtInfoDatosC.setText(cita.generarReporteCita());
+                        encontrada = true;
+                        break; // solo se busca la primera coincidencia 
+                    }
+                }
+            }
+            if (!encontrada) {
+                MensajeDialogo.mostrarMensaje("No se encontró ninguna cita para esa fecha", "Información", "src/images/mark.png", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(FileNotFoundException e){
+            MensajeDialogo.mostrarMensaje("El archivo de citas no existe", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+        }catch(IOException | ParseException e){
+            MensajeDialogo.mostrarMensaje("Error al buscar la cita: " + e.getMessage(), "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void eliminarCita(){
+        String nombrePaciente = vistaPP.txtNomC.getText().trim();
+        String medicoSeleccionado = (String) vistaPP.cmbSelectM.getSelectedItem();
+        String fecha =  vistaPP.txtFecha.getText().trim();
+        String hora = vistaPP.txtHora.getText().trim();
+        
+        if(nombrePaciente.isEmpty() || medicoSeleccionado == null || fecha.isEmpty() || hora.isEmpty()){
+            MensajeDialogo.mostrarMensaje("Todos los campos son obligatorios", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date fechaCita = sdf.parse(fecha);
+            
+            File inputFile = new File("citas.txt");
+            File tempFile = new File("canceladaCita.txt");
+            
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            PrintWriter writer = new PrintWriter(new FileWriter(tempFile));
+            
+            String linea;
+            boolean encontrada = false;
+            while((linea = reader.readLine()) != null){
+                String [] partes = linea.split(";");
+                if(partes.length == 4){
+                    String paciente = partes[0];
+                    String medico = partes[1];
+                    String fechaArchivo = partes[2];
+                    String horaArchivo = partes[3];
+                    
+                    if(paciente.equals(nombrePaciente) && medico.equals(medicoSeleccionado) && fechaArchivo.equals(fecha) && horaArchivo.equals(hora)){
+                        encontrada = true;
+                        
+                        //Creamos la cita para reportar la cancelación
+                        Paciente p = new Paciente();
+                        p.setUsuario(paciente);
+                        Medico m = new Medico();
+                        m.setUsuario(medico);
+                        Cita citaCancelada = new Cita(fechaCita,horaArchivo, p, m);
+                        citaCancelada.cancelarCita();
+                        vistaPP.txtInfoDatosC.setText(citaCancelada.obtenerEstadoActual().generarInforme());
+                    }else{
+                        writer.println(linea);
+                    }
+                }
+            }
+            writer.close();
+            reader.close();
+            if(inputFile.delete() && tempFile.renameTo(inputFile)){
+                if(encontrada){
+                    MensajeDialogo.mostrarMensaje("Cita eliminada correctamente", "Confirmación", "src/images/check.png", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    MensajeDialogo.mostrarMensaje("No se encontró la cita para eliminar", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                MensajeDialogo.mostrarMensaje("Error al procesar el archivo", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(Exception e){
+            MensajeDialogo.mostrarMensaje("Error al eliminar la cita: " + e.getMessage(), "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }
 
 
     @Override
@@ -199,7 +292,13 @@ public class CtrlPP implements ActionListener {
             reservarCita();
         }
         //botón buscar cita
+        if(e.getSource() == vistaPP.btnBuscarP){
+            encontrarCita();
+        }
         //botón eliminar cita
+        if(e.getSource() == vistaPP.btnEliminar){
+            eliminarCita();
+        }
         //botón salir
         if(e.getSource() == vistaPP.btnSalir){
             vistaPP.dispose();

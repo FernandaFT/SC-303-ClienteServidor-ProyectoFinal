@@ -94,7 +94,4 @@ public class Cita {
                 "Médico: Dr(a)." + medico.getUsuario() + "\n";
                 
     }
-//    public String generarReporteCita(){
-//        return "Reporte de cita: " + fecha + " a las " + hora + " con " + medico.getUsuario();
-//    }
 }
