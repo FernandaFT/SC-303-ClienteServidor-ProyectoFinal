@@ -125,6 +125,22 @@ public class CtrlPP implements ActionListener {
             MensajeDialogo.mostrarMensaje("Error al guardar la cita", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+//    public void eliminarCita(){
+//        String nombrePaciente = vistaPP.txtNomC.getText().trim();
+//        String medicoSeleccionado = (String) vistaPP.cmbSelectM.getSelectedItem();
+//        String fecha =  vistaPP.txtFecha.getText().trim();
+//        String hora = vistaPP.txtHora.getText().trim();
+//        
+//        if(nombrePaciente.isEmpty() || medicoSeleccionado == null || fecha.isEmpty() || hora.isEmpty()){
+//            MensajeDialogo.mostrarMensaje("Todos los campos son obligatorios", "Error", "src/images/mark.png", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        try{
+//            
+//        }
+//        
+//    }
 
 
     @Override
