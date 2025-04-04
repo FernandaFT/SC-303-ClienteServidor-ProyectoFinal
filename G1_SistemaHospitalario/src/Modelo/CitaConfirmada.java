@@ -21,6 +21,6 @@ public class CitaConfirmada extends EstadoCita {
     
     @Override
     public String generarInforme(){
-        return "Cita confirmada con " + cita.getMedico().getUsuario();
+        return "Cita confirmada con:\n" + cita.getMedico().getUsuario();
     }
 }
