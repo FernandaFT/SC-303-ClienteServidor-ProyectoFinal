@@ -35,6 +35,27 @@ public class PantallaMedico extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtNombreM = new javax.swing.JLabel();
         btnSalir = new javax.swing.JToggleButton();
+        TodasLasCitas = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtInfoCitas = new javax.swing.JTextArea();
+        btnMostrarCitas = new javax.swing.JButton();
+        btnMostrarPacientes = new javax.swing.JButton();
+        panelCitas = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnNombreDoc = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        cmbEspecialidad = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        txtNumLic = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        cmbPacientes = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDiagnostico = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtMedicamentos = new javax.swing.JTextArea();
         bgM = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -56,6 +77,176 @@ public class PantallaMedico extends javax.swing.JFrame {
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
+        TodasLasCitas.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtInfoCitas.setEditable(false);
+        txtInfoCitas.setBackground(new java.awt.Color(255, 255, 255));
+        txtInfoCitas.setColumns(20);
+        txtInfoCitas.setRows(5);
+        jScrollPane1.setViewportView(txtInfoCitas);
+
+        btnMostrarCitas.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnMostrarCitas.setForeground(new java.awt.Color(0, 204, 204));
+        btnMostrarCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cita.png"))); // NOI18N
+        btnMostrarCitas.setText("Mostrar citas");
+        btnMostrarCitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarCitasActionPerformed(evt);
+            }
+        });
+
+        btnMostrarPacientes.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnMostrarPacientes.setForeground(new java.awt.Color(0, 204, 204));
+        btnMostrarPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/paciente.png"))); // NOI18N
+        btnMostrarPacientes.setText("Mostrar Pacientes");
+        btnMostrarPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarPacientesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout TodasLasCitasLayout = new javax.swing.GroupLayout(TodasLasCitas);
+        TodasLasCitas.setLayout(TodasLasCitasLayout);
+        TodasLasCitasLayout.setHorizontalGroup(
+            TodasLasCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TodasLasCitasLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(TodasLasCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMostrarPacientes)
+                    .addComponent(btnMostrarCitas))
+                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(TodasLasCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TodasLasCitasLayout.createSequentialGroup()
+                    .addContainerGap(15, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(16, Short.MAX_VALUE)))
+        );
+        TodasLasCitasLayout.setVerticalGroup(
+            TodasLasCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TodasLasCitasLayout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addComponent(btnMostrarCitas)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarPacientes)
+                .addGap(14, 14, 14))
+            .addGroup(TodasLasCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TodasLasCitasLayout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(102, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(TodasLasCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 250, 390));
+
+        panelCitas.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel1.setText("Dr (a).");
+
+        btnNombreDoc.setEditable(false);
+        btnNombreDoc.setBackground(new java.awt.Color(255, 255, 255));
+        btnNombreDoc.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel2.setText("Especialidad");
+
+        cmbEspecialidad.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Medicina General", "Odontología" }));
+
+        jLabel3.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel3.setText("Número Licencia");
+
+        jLabel4.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel4.setText("Paciente");
+
+        cmbPacientes.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        cmbPacientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
+
+        jLabel5.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel5.setText("Diagnóstico");
+
+        txtDiagnostico.setColumns(20);
+        txtDiagnostico.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtDiagnostico.setRows(5);
+        jScrollPane2.setViewportView(txtDiagnostico);
+
+        jButton1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 204, 204));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
+        jButton1.setText("Añadir");
+
+        jLabel6.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        jLabel6.setText("Medicamentos");
+
+        txtMedicamentos.setColumns(20);
+        txtMedicamentos.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtMedicamentos.setRows(5);
+        jScrollPane3.setViewportView(txtMedicamentos);
+
+        javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
+        panelCitas.setLayout(panelCitasLayout);
+        panelCitasLayout.setHorizontalGroup(
+            panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCitasLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel5)
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNumLic))
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnNombreDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        panelCitasLayout.setVerticalGroup(
+            panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCitasLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnNombreDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cmbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNumLic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        jPanel1.add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 250, 390));
+
         bgM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg2.jpg"))); // NOI18N
         jPanel1.add(bgM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 530));
 
@@ -76,6 +267,14 @@ public class PantallaMedico extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnMostrarCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarCitasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarCitasActionPerformed
+
+    private void btnMostrarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPacientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarPacientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,9 +313,30 @@ public class PantallaMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel TodasLasCitas;
     private javax.swing.JLabel bgM;
+    public javax.swing.JButton btnMostrarCitas;
+    public javax.swing.JButton btnMostrarPacientes;
+    public javax.swing.JTextField btnNombreDoc;
     public javax.swing.JToggleButton btnSalir;
+    public javax.swing.JComboBox<String> cmbEspecialidad;
+    public javax.swing.JComboBox<String> cmbPacientes;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JPanel panelCitas;
+    public javax.swing.JTextArea txtDiagnostico;
+    public javax.swing.JTextArea txtInfoCitas;
+    public javax.swing.JTextArea txtMedicamentos;
     public javax.swing.JLabel txtNombreM;
+    public javax.swing.JTextField txtNumLic;
     // End of variables declaration//GEN-END:variables
 }
