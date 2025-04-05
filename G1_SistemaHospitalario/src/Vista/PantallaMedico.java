@@ -17,6 +17,7 @@ public class PantallaMedico extends javax.swing.JFrame {
      */
     public PantallaMedico() {
         initComponents();
+        panelCitas.setVisible(false);
     }
     
         
@@ -44,18 +45,18 @@ public class PantallaMedico extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnNombreDoc = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        cmbEspecialidad = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtNumLic = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cmbPacientes = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDiagnostico = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnAnadirInfo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtMedicamentos = new javax.swing.JTextArea();
+        cmbTodosPacientes = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         bgM = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -146,21 +147,18 @@ public class PantallaMedico extends javax.swing.JFrame {
         btnNombreDoc.setEditable(false);
         btnNombreDoc.setBackground(new java.awt.Color(255, 255, 255));
         btnNombreDoc.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnNombreDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel2.setText("Especialidad");
 
-        cmbEspecialidad.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Medicina General", "Odontología" }));
-
         jLabel3.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel3.setText("Número Licencia");
 
+        txtNumLic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
         jLabel4.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel4.setText("Paciente");
-
-        cmbPacientes.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        cmbPacientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
 
         jLabel5.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel5.setText("Diagnóstico");
@@ -170,10 +168,15 @@ public class PantallaMedico extends javax.swing.JFrame {
         txtDiagnostico.setRows(5);
         jScrollPane2.setViewportView(txtDiagnostico);
 
-        jButton1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
-        jButton1.setText("Añadir");
+        btnAnadirInfo.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        btnAnadirInfo.setForeground(new java.awt.Color(0, 204, 204));
+        btnAnadirInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
+        btnAnadirInfo.setText("Añadir información");
+        btnAnadirInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnadirInfoActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel6.setText("Medicamentos");
@@ -183,6 +186,12 @@ public class PantallaMedico extends javax.swing.JFrame {
         txtMedicamentos.setRows(5);
         jScrollPane3.setViewportView(txtMedicamentos);
 
+        cmbTodosPacientes.setFont(new java.awt.Font("Kodchasan", 0, 12)); // NOI18N
+        cmbTodosPacientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
+
+        jComboBox1.setFont(new java.awt.Font("Kodchasan", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Medicina General", "Odontología" }));
+
         javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
         panelCitas.setLayout(panelCitasLayout);
         panelCitasLayout.setHorizontalGroup(
@@ -190,28 +199,31 @@ public class PantallaMedico extends javax.swing.JFrame {
             .addGroup(panelCitasLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel5)
-                    .addGroup(panelCitasLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelCitasLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNumLic))
-                    .addGroup(panelCitasLayout.createSequentialGroup()
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNombreDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(btnAnadirInfo)
+                            .addComponent(jLabel5)
+                            .addGroup(panelCitasLayout.createSequentialGroup()
+                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnNombreDoc)))
+                            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(panelCitasLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbTodosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelCitasLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtNumLic, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         panelCitasLayout.setVerticalGroup(
             panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +235,7 @@ public class PantallaMedico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cmbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -231,7 +243,7 @@ public class PantallaMedico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cmbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTodosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -239,9 +251,9 @@ public class PantallaMedico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAnadirInfo)
                 .addContainerGap())
         );
 
@@ -274,7 +286,13 @@ public class PantallaMedico extends javax.swing.JFrame {
 
     private void btnMostrarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPacientesActionPerformed
         // TODO add your handling code here:
+        panelCitas.setVisible(true);
+        TodasLasCitas.setVisible(false);
     }//GEN-LAST:event_btnMostrarPacientesActionPerformed
+
+    private void btnAnadirInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnadirInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,13 +333,13 @@ public class PantallaMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel TodasLasCitas;
     private javax.swing.JLabel bgM;
+    public javax.swing.JButton btnAnadirInfo;
     public javax.swing.JButton btnMostrarCitas;
     public javax.swing.JButton btnMostrarPacientes;
     public javax.swing.JTextField btnNombreDoc;
     public javax.swing.JToggleButton btnSalir;
-    public javax.swing.JComboBox<String> cmbEspecialidad;
-    public javax.swing.JComboBox<String> cmbPacientes;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JComboBox<String> cmbTodosPacientes;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
