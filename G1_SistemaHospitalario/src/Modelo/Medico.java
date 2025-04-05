@@ -39,6 +39,6 @@ public class Medico extends RegistroU {
     }
     
     public String verAgenda(){
-        return "Mostrando agenda del médico: " + getUsuario();
+        return "Pacientes en espera: " + getUsuario();
     }
 }

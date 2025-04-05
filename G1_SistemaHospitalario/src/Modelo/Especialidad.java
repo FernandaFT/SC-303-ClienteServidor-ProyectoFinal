@@ -4,19 +4,16 @@
  */
 package Modelo;
 
-import g1_sistemahospitalario.*;
-
 /**
  *
  * @author fernandafajardo
  */
 public class Especialidad {
     
-    private String nombreEspecialidad, descripcion;
+    private String nombreEspecialidad;
 
-    public Especialidad(String nombreEspecialidad, String descripcion) {
+    public Especialidad(String nombreEspecialidad) {
         this.nombreEspecialidad = nombreEspecialidad;
-        this.descripcion = descripcion;
     }
 
     public String getNombreEspecialidad() {
@@ -25,14 +22,6 @@ public class Especialidad {
 
     public void setNombreEspecialidad(String nombreEspecialidad) {
         this.nombreEspecialidad = nombreEspecialidad;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
     
     public boolean validarEspecialidad(){
