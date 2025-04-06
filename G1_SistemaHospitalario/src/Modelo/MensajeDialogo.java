@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import g1_sistemahospitalario.*;
 import javax.swing.*;
 
 /**

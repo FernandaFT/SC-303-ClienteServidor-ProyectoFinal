@@ -37,8 +37,4 @@ public class Medico extends RegistroU {
     public void setNumeroLicencia(int numeroLicencia) {
         this.numeroLicencia = numeroLicencia;
     }
-    
-    public String verAgenda(){
-        return "Pacientes en espera: " + getUsuario();
-    }
 }
