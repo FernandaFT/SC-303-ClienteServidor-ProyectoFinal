@@ -43,7 +43,7 @@ public class PantallaMedico extends javax.swing.JFrame {
         btnMostrarPacientes = new javax.swing.JButton();
         panelCitas = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnNombreDoc = new javax.swing.JTextField();
+        txtNombreDoc = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNumLic = new javax.swing.JTextField();
@@ -56,7 +56,7 @@ public class PantallaMedico extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtMedicamentos = new javax.swing.JTextArea();
         cmbTodosPacientes = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbEspecialidad = new javax.swing.JComboBox<>();
         bgM = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -144,10 +144,10 @@ public class PantallaMedico extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel1.setText("Dr (a).");
 
-        btnNombreDoc.setEditable(false);
-        btnNombreDoc.setBackground(new java.awt.Color(255, 255, 255));
-        btnNombreDoc.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
-        btnNombreDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtNombreDoc.setEditable(false);
+        txtNombreDoc.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreDoc.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
+        txtNombreDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel2.setFont(new java.awt.Font("Kodchasan", 0, 13)); // NOI18N
         jLabel2.setText("Especialidad");
@@ -189,8 +189,8 @@ public class PantallaMedico extends javax.swing.JFrame {
         cmbTodosPacientes.setFont(new java.awt.Font("Kodchasan", 0, 12)); // NOI18N
         cmbTodosPacientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
 
-        jComboBox1.setFont(new java.awt.Font("Kodchasan", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Medicina General", "Odontología" }));
+        cmbEspecialidad.setFont(new java.awt.Font("Kodchasan", 0, 12)); // NOI18N
+        cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Medicina General", "Odontología" }));
 
         javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
         panelCitas.setLayout(panelCitasLayout);
@@ -200,29 +200,28 @@ public class PantallaMedico extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(btnAnadirInfo)
-                            .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addComponent(btnAnadirInfo)
+                        .addComponent(jLabel5)
+                        .addGroup(panelCitasLayout.createSequentialGroup()
+                            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cmbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNombreDoc)))
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(panelCitasLayout.createSequentialGroup()
-                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbTodosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCitasLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnNombreDoc)))
-                            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(panelCitasLayout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbTodosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelCitasLayout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtNumLic, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(txtNumLic, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         panelCitasLayout.setVerticalGroup(
@@ -231,11 +230,11 @@ public class PantallaMedico extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(btnNombreDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -336,10 +335,9 @@ public class PantallaMedico extends javax.swing.JFrame {
     public javax.swing.JButton btnAnadirInfo;
     public javax.swing.JButton btnMostrarCitas;
     public javax.swing.JButton btnMostrarPacientes;
-    public javax.swing.JTextField btnNombreDoc;
     public javax.swing.JToggleButton btnSalir;
+    public javax.swing.JComboBox<String> cmbEspecialidad;
     public javax.swing.JComboBox<String> cmbTodosPacientes;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -354,6 +352,7 @@ public class PantallaMedico extends javax.swing.JFrame {
     public javax.swing.JTextArea txtDiagnostico;
     public javax.swing.JTextArea txtInfoCitas;
     public javax.swing.JTextArea txtMedicamentos;
+    public javax.swing.JTextField txtNombreDoc;
     public javax.swing.JLabel txtNombreM;
     public javax.swing.JTextField txtNumLic;
     // End of variables declaration//GEN-END:variables
