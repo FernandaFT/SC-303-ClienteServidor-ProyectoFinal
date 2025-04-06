@@ -560,8 +560,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
     public javax.swing.JTextField txtHora;
     public javax.swing.JTextArea txtInfoDatosC;
     public javax.swing.JTextArea txtInfoDatosP;
-    public javax.swing.JTextArea txtInfoDiagnostico;
-    public javax.swing.JTextArea txtInfoMedicamentos;
+    public static javax.swing.JTextArea txtInfoDiagnostico;
+    public static javax.swing.JTextArea txtInfoMedicamentos;
     public javax.swing.JTextField txtNom;
     public javax.swing.JTextField txtNomC;
     public static javax.swing.JLabel txtNombreP;

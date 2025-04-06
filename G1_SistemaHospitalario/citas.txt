@@ -4,3 +4,5 @@ Kristel Fajardo;Ivannia Chavarria;10/04/2025;10:00
 Odilie Fajardo;Henry Arias;20/04/2025;1:00
 Jenaro Maltez;Fernanda Fajardo;20/04/2025;9:00
 AngrodTralari;Henry Arias;15/05/2025;10:00
+Mariana Fajardo;Violet Anderson;28/05/2025;1:00
+Pilar Gomez;Fernanda Fajardo;15/09/2025;3:00
