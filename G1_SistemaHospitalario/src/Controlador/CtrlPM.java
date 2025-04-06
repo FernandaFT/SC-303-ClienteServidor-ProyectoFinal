@@ -34,6 +34,7 @@ public class CtrlPM implements ActionListener {
         this.vistaPM.btnSalir.addActionListener(this);
         this.vistaPM.btnMostrarCitas.addActionListener(this);
         this.vistaPM.btnAnadirInfo.addActionListener(this);
+        this.vistaPM.btnBack.addActionListener(this);
     }
     
     public void iniciar(){
@@ -52,6 +53,12 @@ public class CtrlPM implements ActionListener {
         if(nombreM != null){
             vistaPM.txtNombreDoc.setText(nombreM);
         }
+    }
+    
+    public void limpiar(){
+        vistaPM.txtNumLic.setText("");
+        vistaPM.txtDiagnostico.setText("");
+        vistaPM.txtMedicamentos.setText("");
     }
     
     public void cargarPacientesConCitas() {
@@ -181,10 +188,10 @@ public class CtrlPM implements ActionListener {
                     bw.write(linea);
                     bw.newLine();
 
-                // Mostrar en los campos correspondientes dentro de PantallaPaciente
-                PantallaPaciente.txtInfoDiagnostico.setText(diagnostico);
-                PantallaPaciente.txtInfoMedicamentos.setText(medicamentos);
-
+                    // Mostrar en los campos correspondientes dentro de PantallaPaciente
+                    PantallaPaciente.txtInfoDiagnostico.setText(diagnostico);
+                    PantallaPaciente.txtInfoMedicamentos.setText(medicamentos);
+                    limpiar();
                     MensajeDialogo.mostrarMensaje("Información guardada correctamente.","Éxito","src/images/check.png",JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -196,7 +203,14 @@ public class CtrlPM implements ActionListener {
                 MensajeDialogo.mostrarMensaje("Ocurrió un error inesperado: " + ex.getMessage(),"Error","src/images/mark.png",JOptionPane.ERROR_MESSAGE);
             }
         }
-
+        
+        //botón back to inicio PPM
+        if(e.getSource() ==  vistaPM.btnBack){
+            vistaPM.TodasLasCitas.setVisible(true);
+            vistaPM.panelCitas.setVisible(false);
+            
+        }
+        
         //botón salir
         if(e.getSource() == vistaPM.btnSalir){
             vistaPM.dispose();
