@@ -6,3 +6,6 @@ Jenaro Maltez;Fernanda Fajardo;20/04/2025;9:00
 AngrodTralari;Henry Arias;15/05/2025;10:00
 Mariana Fajardo;Violet Anderson;28/05/2025;1:00
 Pilar Gomez;Fernanda Fajardo;15/09/2025;3:00
+Alexander Chavarria;Fernanda Fajardo;03/05/2025;5:00
+Alexander Chavarria;Violet Anderson;20/06/2025;4:00
+Alexander Chavarria;Mario Chavez;30/04/2025;3:00
