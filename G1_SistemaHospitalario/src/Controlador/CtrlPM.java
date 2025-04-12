@@ -59,6 +59,7 @@ public class CtrlPM implements ActionListener {
         vistaPM.txtNumLic.setText("");
         vistaPM.txtDiagnostico.setText("");
         vistaPM.txtMedicamentos.setText("");
+        vistaPM.txtInfoCitas.setText("");
     }
     
     public void cargarPacientesConCitas() {
@@ -208,6 +209,7 @@ public class CtrlPM implements ActionListener {
         if(e.getSource() ==  vistaPM.btnBack){
             vistaPM.TodasLasCitas.setVisible(true);
             vistaPM.panelCitas.setVisible(false);
+            limpiar();
             
         }
         
@@ -215,6 +217,7 @@ public class CtrlPM implements ActionListener {
         if(e.getSource() == vistaPM.btnSalir){
             vistaPM.dispose();
             vistaLogin.setVisible(true);
+            limpiar();
         }  
     }   
 }

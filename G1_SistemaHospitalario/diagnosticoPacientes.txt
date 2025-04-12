@@ -1,2 +1,2 @@
 Fernanda Fajardo;Odontología;5397;Alexander Chavarria;tratamiento de nervio;antibioticos y pasta de hidroxido de calcio
-Fernanda Fajardo;Medicina General;5397;Elena Quesada;Dolor lumbar y molestia en el oido izquierdo;acetamenofen cada 12hrs
+Fernanda Fajardo;Medicina General;5397;Elena Quesada;Dolor muscular;tomar cada 12hr una ibuprofeno
