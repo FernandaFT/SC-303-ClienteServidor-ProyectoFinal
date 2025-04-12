@@ -58,6 +58,7 @@ public class CtrlPP implements ActionListener {
         vistaPP.txtContr.setText("");
         vistaPP.txtNomC.setText("");
         vistaPP.txtFecha.setText("");
+        vistaPP.cmbDatos.setSelectedIndex(0);
     }
     
     public void cargarMedicos(){
@@ -305,6 +306,7 @@ public class CtrlPP implements ActionListener {
         if(e.getSource() == vistaPP.btnSalir){
             vistaPP.dispose();
             vistaLogin.setVisible(true);
+            limpiar();
         }
     }  
 }
