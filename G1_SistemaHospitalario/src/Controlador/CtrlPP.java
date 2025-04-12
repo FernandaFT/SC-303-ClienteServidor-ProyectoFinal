@@ -72,8 +72,10 @@ public class CtrlPP implements ActionListener {
         String nombreUsuario = consulta.obtenerNombreUsuario(modelo.getUsuario());
         if (nombreUsuario != null) {
             vistaPP.txtNom.setText(nombreUsuario);
+            vistaPP.txtNomC.setText(nombreUsuario);
         } else {
             vistaPP.txtNom.setText("Usuario no encontrado");
+            
         }
     }
     
